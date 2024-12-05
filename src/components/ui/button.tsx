@@ -20,7 +20,7 @@ const buttonVariants = cva(
 				link: "text-primary underline-offset-4 hover:underline",
 				date: "bg-primary text-primary-foreground hover:bg-primary/90",
 				"date-ghost":
-					"text-muted-foreground/40 hover:bg-primary hover:text-primary-foreground",
+					"text-muted-foreground/40 hover:bg-primary/10 hover:text-primary",
 			},
 			size: {
 				default: "h-10 px-4 py-2",
