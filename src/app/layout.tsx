@@ -20,9 +20,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} antialiased`}>
+			<body className={`${geistSans.className} antialiased`}>
 				<main className="relative min-h-screen w-full">
-					<div className="mx-auto w-[568px]">{children}</div>
+					<div className="mx-auto max-w-[568px]">{children}</div>
 				</main>
 			</body>
 		</html>
