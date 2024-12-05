@@ -1,5 +1,6 @@
 "use client";
 
+// biome-ignore lint/style/noNamespaceImport: needed here
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 

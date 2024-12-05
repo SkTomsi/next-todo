@@ -1,5 +1,6 @@
 "use client";
 
+import NewTodoDrawer from "@/components/home/new-todo-drawer";
 import WeekButtons from "@/components/home/week-calender";
 import { useDateStore } from "@/store/dateStore";
 import type { Dayjs } from "dayjs";
@@ -13,7 +14,7 @@ export default function Home() {
 	};
 
 	return (
-		<div className="flex min-h-screen w-full flex-col gap-6 bg-zinc-200">
+		<div className="flex min-h-screen w-full flex-col gap-6 bg-zinc-100">
 			<div className="flex flex-col gap-4 rounded-b-[30px] bg-white p-5">
 				<h1 className="font-bold text-2xl tracking-tight">Todo App</h1>
 				<div className="flex w-full items-center justify-center overflow-auto">
@@ -24,12 +25,13 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="px-5 font-bold text-xl tracking-tight ">
-				<p>
-					{selectedDate && dayjs(selectedDate).isSame(dayjs(), "day")
+				<p className="">
+					{dayjs(selectedDate).isSame(dayjs(), "day")
 						? "Today"
 						: dayjs(selectedDate).format("dddd")}
 				</p>
 			</div>
+			<NewTodoDrawer />
 		</div>
 	);
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Crimson_Text } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -6,6 +7,13 @@ const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
 	variable: "--font-geist-sans",
 	weight: "100 900",
+});
+
+const crimsonText = Crimson_Text({
+	weight: ["400", "600", "700"],
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-crimson-text",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +28,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.className} antialiased`}>
+			<body
+				className={` ${crimsonText.variable} ${geistSans.className} antialiased`}
+			>
 				<main className="relative min-h-screen w-full">
 					<div className="mx-auto max-w-[568px]">{children}</div>
 				</main>

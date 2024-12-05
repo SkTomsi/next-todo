@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { create } from "zustand";
 
 interface DateStore {
@@ -6,6 +7,6 @@ interface DateStore {
 }
 
 export const useDateStore = create<DateStore>()((set) => ({
-	selectedDate: new Date().toISOString().split("T")[0],
+	selectedDate: dayjs().format("YYYY-MM-DD"),
 	setSelectedDate: (date: string) => set({ selectedDate: date }),
 }));
