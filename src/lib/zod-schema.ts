@@ -4,4 +4,12 @@ export const AddTodoSchema = z.object({
 	title: z.string().min(1, {
 		message: "Please enter you Todo Title",
 	}),
+	description: z
+		.string()
+		.min(1, {
+			message: "Please enter your Todo Description",
+		})
+		.max(100, {
+			message: "Please add a short description",
+		}),
 });

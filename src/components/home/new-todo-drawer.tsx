@@ -1,7 +1,10 @@
 import { AddTodoSchema } from "@/lib/zod-schema";
+import { useTodoStore } from "@/store/todo-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import type { z } from "zod";
 import { Button } from "../ui/button";
 import {
@@ -23,22 +26,35 @@ import {
 import { Input } from "../ui/input";
 
 export default function NewTodoDrawer() {
+	const { addTodo } = useTodoStore();
+	const [open, setOpen] = useState<boolean>(false);
+	const [_isPending, startTransition] = useTransition();
+
 	const form = useForm<z.infer<typeof AddTodoSchema>>({
 		resolver: zodResolver(AddTodoSchema),
 		defaultValues: {
 			title: "",
+			description: "",
 		},
 	});
 
 	function onSubmit(data: z.infer<typeof AddTodoSchema>) {
 		// biome-ignore lint/suspicious/noConsoleLog: <for testing purposes>
 		console.log(data);
+
+		startTransition(() => {
+			addTodo(data.title, data.description);
+		});
+
+		toast.success("Your Todo has been added!");
+		setOpen(false);
+		form.reset();
 	}
 
 	return (
 		<div className="fixed bottom-10 left-0 w-full">
 			<div className="mx-auto flex w-full items-start justify-center">
-				<Drawer>
+				<Drawer open={open} onOpenChange={setOpen}>
 					<DrawerTrigger asChild>
 						<Button
 							variant={"outline"}
@@ -68,6 +84,22 @@ export default function NewTodoDrawer() {
 												<FormLabel>Title</FormLabel>
 												<FormControl>
 													<Input placeholder="Enter todo title" {...field} />
+												</FormControl>
+												<FormMessage />
+											</FormItem>
+										)}
+									/>
+									<FormField
+										name="description"
+										control={form.control}
+										render={({ field }) => (
+											<FormItem>
+												<FormLabel>Description</FormLabel>
+												<FormControl>
+													<Input
+														placeholder="Enter todo description"
+														{...field}
+													/>
 												</FormControl>
 												<FormMessage />
 											</FormItem>
