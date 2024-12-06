@@ -50,7 +50,7 @@ export default function TodoList({ date }: { date?: string }) {
 		);
 	}
 	return (
-		<motion.div className="mb-10 flex w-full flex-col gap-6" layout>
+		<motion.div className="mb-10 flex w-full flex-col gap-6">
 			<AnimatePresence>
 				{filteredTodos.map((t) => {
 					return <TodoCard todo={t} key={t.id} />;

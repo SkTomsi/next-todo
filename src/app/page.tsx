@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<div className="flex min-h-screen w-full flex-col gap-6 bg-zinc-100">
 			<div className="flex flex-col gap-4 rounded-b-[30px] bg-white p-5">
-				<h1 className="font-bold text-2xl tracking-tight">Todo App</h1>
+				<h1 className="font-bold text-2xl tracking-tight">onday</h1>
 				<div className="flex w-full items-center justify-center overflow-auto">
 					<WeekButtons
 						onDaySelect={handeDateSelection}
@@ -43,7 +43,7 @@ export default function Home() {
 						TriggerElement={
 							<Button
 								variant={"outline"}
-								className="h-16 w-16 rounded-full shadow-2xl transition-transform duration-150 ease-in-out hover:scale-110 [&_svg]:size-8"
+								className="h-16 w-16 rounded-full shadow-2xl transition-transform duration-150 ease-in-out hover:scale-90 hover:bg-white hover:shadow-sm [&_svg]:size-8"
 							>
 								<Plus />
 							</Button>
