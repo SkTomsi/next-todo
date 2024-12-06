@@ -59,6 +59,7 @@ export const useTodoStore = create<TodoStore>()(
 									...t,
 									title: todo.title,
 									description: todo.description,
+									updatedAt: dayjs().toISOString(),
 								};
 							}
 							return t;
