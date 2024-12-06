@@ -46,6 +46,22 @@ const WeekButtons: React.FC<WeekButtonProps> = ({
 		onDaySelect?.(date);
 	};
 
+	function getDateStyles(date: Dayjs): string {
+		if (date.isSame(dayjs(selectedDate), "day")) {
+			return "bg-black text-white hover:text-white";
+		}
+
+		if (date.isBefore(dayjs(today), "day")) {
+			return "text-black";
+		}
+
+		if (date.isSame(dayjs(), "day")) {
+			return "text-black";
+		}
+
+		return "text-muted-foreground/40";
+	}
+
 	return (
 		<div
 			className={`flex w-full items-center justify-between py-2 ${className}`}
@@ -54,14 +70,13 @@ const WeekButtons: React.FC<WeekButtonProps> = ({
 				<Button
 					key={date.format("YYYY-MM-DD")}
 					onClick={() => handleDayClick(date)}
-					variant={
-						date.isSame(dayjs(selectedDate ?? today), "day")
-							? "date"
-							: "date-ghost"
-					}
-					className="flex h-auto flex-col gap-2 rounded-xl"
+					className={`flex h-auto flex-col gap-2 rounded-xl bg-transparent hover:text-white ${getDateStyles(date)}`}
 				>
-					<p className="font-medium">{date.format("dd").slice(0, 1)}</p>
+					<p
+						className={`font-medium ${date.isSame(selectedDate, "day") ? "text-white" : "text-muted-foreground/40"}`}
+					>
+						{date.format("dd").slice(0, 1)}
+					</p>
 					<p className="font-bold text-base">{date.format("DD")}</p>
 				</Button>
 			))}

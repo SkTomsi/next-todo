@@ -1,11 +1,13 @@
 "use client";
 
-import NewTodoDrawer from "@/components/home/new-todo-drawer";
+import TodoDrawer from "@/components/home/todo-drawer";
 import TodoList from "@/components/home/todo-list";
 import WeekButtons from "@/components/home/week-calender";
+import { Button } from "@/components/ui/button";
 import { useDateStore } from "@/store/dateStore";
 import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
+import { Plus } from "lucide-react";
 
 export default function Home() {
 	const { selectedDate, setSelectedDate } = useDateStore();
@@ -32,8 +34,23 @@ export default function Home() {
 						: dayjs(selectedDate).format("dddd")}
 				</p>
 			</div>
-			<TodoList date={selectedDate} />
-			<NewTodoDrawer />
+			<div className="px-5">
+				<TodoList date={selectedDate} />
+			</div>
+			<div className="fixed bottom-10 left-0 w-full">
+				<div className="mx-auto flex w-full items-start justify-center">
+					<TodoDrawer
+						TriggerElement={
+							<Button
+								variant={"outline"}
+								className="h-16 w-16 rounded-full shadow-2xl [&_svg]:size-8"
+							>
+								<Plus />
+							</Button>
+						}
+					/>
+				</div>
+			</div>
 		</div>
 	);
 }

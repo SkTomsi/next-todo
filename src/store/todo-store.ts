@@ -7,17 +7,17 @@ interface TodoStore {
 	Todos: Todo[];
 	addTodo: (todo: string, description: string, date?: string) => void;
 	toggleTodo: (id: string) => void;
-	//   editTodo: (id: string, todo: Todo) => void;
-	//   deleteTodo: (id: string) => void;
+	updateTodo: (id: string, todo: Todo) => void;
+	getTodoById: (id: string) => Todo | null;
+	deleteTodo: (id: string) => void;
 	//   clearTodos: () => void;
 	//   getDaywiseTodos: (date: string) => Todo[];
 }
 
 export const useTodoStore = create<TodoStore>()(
 	persist(
-		(set) => ({
+		(set, get) => ({
 			Todos: [],
-
 			addTodo: (todo: string, description: string, date?: string) => {
 				set((state) => {
 					return {
@@ -47,6 +47,38 @@ export const useTodoStore = create<TodoStore>()(
 							}
 							return todo;
 						}),
+					};
+				});
+			},
+			updateTodo: (id: string, todo: Todo) => {
+				set((state) => {
+					return {
+						Todos: state.Todos.map((t) => {
+							if (t.id === id) {
+								return {
+									...t,
+									title: todo.title,
+									description: todo.description,
+								};
+							}
+							return t;
+						}),
+					};
+				});
+			},
+			getTodoById: (id: string) => {
+				const todo = get().Todos.find((t) => t.id === id);
+
+				if (!todo) {
+					return null;
+				}
+
+				return todo;
+			},
+			deleteTodo: (id: string) => {
+				set((state) => {
+					return {
+						Todos: state.Todos.filter((t) => t.id !== id),
 					};
 				});
 			},

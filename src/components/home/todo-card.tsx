@@ -1,13 +1,15 @@
 import type { Todo } from "@/lib/types";
 import { useTodoStore } from "@/store/todo-store";
+import { EllipsisVerticalIcon } from "lucide-react";
 import { Card } from "../ui/card";
 import { Checkbox } from "../ui/checkbox";
+import TodoDrawer from "./todo-drawer";
 
 export default function TodoCard({ todo }: { todo: Todo }) {
 	const { toggleTodo } = useTodoStore();
 
 	return (
-		<Card className="w-full rounded-2xl border-none p-4 shadow-sm">
+		<Card className="flex w-full items-center rounded-2xl border-none p-4 shadow-sm">
 			<div className="flex w-full items-start gap-4">
 				<div className="mt-1 flex">
 					<Checkbox
@@ -42,6 +44,12 @@ export default function TodoCard({ todo }: { todo: Todo }) {
 					</p>
 				</div>
 			</div>
+			<TodoDrawer
+				TriggerElement={
+					<EllipsisVerticalIcon className="h-5 w-5 hover:cursor-pointer" />
+				}
+				existingTodo={todo.id}
+			/>
 		</Card>
 	);
 }
