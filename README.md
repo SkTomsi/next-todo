@@ -62,7 +62,7 @@ In this project, the following packages and libraries were used to streamline de
   
 
 ## Folder Structure
-
+```bash
 ├── README.md
 ├── biome.jsonc
 ├── bun.lockb
@@ -97,4 +97,6 @@ In this project, the following packages and libraries were used to streamline de
 │       └── todo-store.ts
 ├── tailwind.config.ts
 └── tsconfig.json
+```bash
+
 
