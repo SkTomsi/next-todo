@@ -97,6 +97,5 @@ In this project, the following packages and libraries were used to streamline de
 │       └── todo-store.ts
 ├── tailwind.config.ts
 └── tsconfig.json
-```bash
-
+```
 
