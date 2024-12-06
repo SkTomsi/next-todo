@@ -3,6 +3,7 @@ import { AddTodoSchema } from "@/lib/zod-schema";
 import { useDateStore } from "@/store/dateStore";
 import { useTodoStore } from "@/store/todo-store";
 import { zodResolver } from "@hookform/resolvers/zod";
+import dayjs from "dayjs";
 import { TrashIcon } from "lucide-react";
 import type React from "react";
 import { useEffect, useState, useTransition } from "react";
@@ -85,6 +86,10 @@ export default function TodoDrawer({
 				});
 				toast.success("Todo has been updated!");
 			} else {
+				if (dayjs(selectedDate).isBefore(dayjs(), "day")) {
+					toast.error("You cannot create Todos for past dates");
+					return;
+				}
 				addTodo(
 					data.title,
 					data.description,
