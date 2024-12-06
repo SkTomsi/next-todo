@@ -5,7 +5,9 @@
 
 This repo is my assignment submission for the role @ ImaginedHQ. I've developed a Todo App using NextJS 15, Zustand, TailwindCSS, Typescript. A fully functional Todo List application built with Next.js 15, Zustand for state management, and Tailwind CSS. The application allows users to manage daily tasks with features like adding, editing, deleting, and marking tasks as complete. You can start adding tasks without authentication.
 
-  
+
+[Deployed Link](https://next-todo-sktomsi.vercel.app/)
+
 
 ## Packages & Libraries Used
 
