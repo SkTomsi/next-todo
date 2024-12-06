@@ -39,6 +39,8 @@ In this project, the following packages and libraries were used to streamline de
 
 -  `DayJS`: Utilized to extend the exisiting JS DateTime for better flexibility when working with Dates.
 
+-  `Framer-motion`: Utilized for layout animations.
+
 -  `Zod`: Integrated for validations to ensure data integrity and correctness.
 
   
