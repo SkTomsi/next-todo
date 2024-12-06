@@ -8,10 +8,22 @@ This repo is my assignment submission for the role @ ImaginedHQ. I've developed 
 
 [Deployed Link](https://next-todo-sktomsi.vercel.app/)
 
+## Potential Improvements
 
-## Packages & Libraries Used
+- Robust State Management:
+	- Considering the addition of the immer package to achieve O(1) time complexity through mutable state while updating and tackle deep nesting.
+
+- Authentication:
+	- Implementing a secure authentication system to ensure user data privacy and security.
+	- Considering the addition of the next-auth package to manage user authentication and authorization.
 
   
+
+- Backend Integration:
+	- Integrating the backend API to persist the data in a DB so that the data can be made available anywhere and anytime.
+
+
+## Packages & Libraries Used
 
 In this project, the following packages and libraries were used to streamline development and offer a robust solution:
 
@@ -51,7 +63,6 @@ In this project, the following packages and libraries were used to streamline de
 
 ## Folder Structure
 
-.
 ├── README.md
 ├── biome.jsonc
 ├── bun.lockb
@@ -87,18 +98,3 @@ In this project, the following packages and libraries were used to streamline de
 ├── tailwind.config.ts
 └── tsconfig.json
 
-## Potential Improvements
-
-  
-
-- Robust State Management:
-	- Considering the addition of the immer package to achieve O(1) time complexity through mutable state while updating and tackle deep nesting.
-
-- Authentication:
-	- Implementing a secure authentication system to ensure user data privacy and security.
-	- Considering the addition of the next-auth package to manage user authentication and authorization.
-
-  
-
-- Backend Integration:
-	- Integrating the backend API to persist the data in a DB so that the data can be made available anywhere and anytime.
