@@ -4,12 +4,13 @@ import { useDateStore } from "@/store/dateStore";
 import { useTodoStore } from "@/store/todo-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import dayjs from "dayjs";
-import { TrashIcon } from "lucide-react";
+import { CheckIcon, PlusIcon, TrashIcon } from "lucide-react";
 import type React from "react";
 import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import type { z } from "zod";
+import { SubmitButton } from "../submit-button";
 import { Button } from "../ui/button";
 import {
 	Drawer,
@@ -173,15 +174,23 @@ export default function TodoDrawer({
 									</FormItem>
 								)}
 							/>
-							<Button type="submit" className="w-full">
-								{todo ? "Update Todo" : "Add Todo"}
-							</Button>
+							<SubmitButton
+								text={todo ? "Update Todo" : "Add Todo"}
+								icon={
+									todo ? (
+										<CheckIcon className="h-5 w-5" />
+									) : (
+										<PlusIcon className="h-5 w-5" />
+									)
+								}
+							/>
+							{/* <Button type="submit" className="w-full"></Button> */}
 						</form>
 					</Form>
 					<DrawerFooter className=" w-full px-0">
 						<Button
 							variant="outline"
-							className="w-full"
+							className="h-12 w-full"
 							onClick={() => {
 								setOpen(false);
 								form.reset();

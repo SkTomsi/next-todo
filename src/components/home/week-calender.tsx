@@ -70,10 +70,10 @@ const WeekButtons: React.FC<WeekButtonProps> = ({
 				<Button
 					key={date.format("YYYY-MM-DD")}
 					onClick={() => handleDayClick(date)}
-					className={`flex h-auto flex-col gap-2 rounded-xl bg-transparent hover:text-white ${getDateStyles(date)}`}
+					className={`group flex h-auto flex-col gap-2 rounded-xl bg-transparent ${getDateStyles(date)} transition-colors ease-in-out hover:bg-muted hover:text-black`}
 				>
 					<p
-						className={`font-medium ${date.isSame(selectedDate, "day") ? "text-white" : "text-muted-foreground/40"}`}
+						className={`font-medium ${date.isSame(selectedDate, "day") ? "text-white group-hover:text-muted-foreground" : "text-muted-foreground/40 group-hover:text-black"}`}
 					>
 						{date.format("dd").slice(0, 1)}
 					</p>
