@@ -17,14 +17,9 @@ const WeekButtons: React.FC<WeekButtonProps> = ({
 
 	const today = dayjs();
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	const generateWeekDates = useCallback((): Dayjs[] => {
-		const startDate =
-			today.day() === 0
-				? today.add(1, "day").startOf("day")
-				: today.startOf("week").add(1, "day");
-
-		return Array.from({ length: 7 }, (_, i) => startDate.add(i, "day"));
+		const weekArray = Array.from({ length: 7 }, (_, i) => dayjs().day(i));
+		return weekArray;
 	}, []);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -66,7 +61,7 @@ const WeekButtons: React.FC<WeekButtonProps> = ({
 		<div
 			className={`flex w-full items-center justify-between py-2 ${className}`}
 		>
-			{currentWeek.map((date) => (
+			{currentWeek?.map((date) => (
 				<Button
 					key={date.format("YYYY-MM-DD")}
 					onClick={() => handleDayClick(date)}

@@ -4,7 +4,7 @@
 		"clientKind": "git",
 		"useIgnoreFile": true,
 		"enabled": true,
-		"defaultBranch": "master"
+		"defaultBranch": "main"
 	},
 	"organizeImports": { "enabled": true },
 	// "files": {

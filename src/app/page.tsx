@@ -43,7 +43,7 @@ export default function Home() {
 						TriggerElement={
 							<Button
 								variant={"outline"}
-								className="h-16 w-16 rounded-full shadow-2xl transition-transform duration-150 ease-in-out hover:scale-90 hover:bg-white hover:shadow-sm [&_svg]:size-8"
+								className="h-16 w-16 rounded-full shadow-2xl transition-transform ease-out hover:scale-95 hover:bg-white hover:shadow-sm [&_svg]:size-8"
 							>
 								<Plus />
 							</Button>
