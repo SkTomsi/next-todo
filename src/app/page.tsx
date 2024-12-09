@@ -34,7 +34,7 @@ export default function Home() {
 						: dayjs(selectedDate).format("dddd")}
 				</p>
 			</div>
-			<div className="px-5">
+			<div className="overflow-hidden px-5">
 				<TodoList date={selectedDate} />
 			</div>
 			<div className="fixed bottom-10 left-0 w-full">

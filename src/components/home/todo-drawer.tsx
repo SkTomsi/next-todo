@@ -142,7 +142,7 @@ export default function TodoDrawer({
 						)}
 					</div>
 				</DrawerHeader>
-				<div className="mb-6 p-4">
+				<div className="p-4">
 					<Form {...form}>
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}

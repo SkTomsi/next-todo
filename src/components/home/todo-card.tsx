@@ -11,10 +11,11 @@ export default function TodoCard({ todo }: { todo: Todo }) {
 
 	return (
 		<motion.div
+			layoutId={todo.id}
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, x: -200 }}
-			layout
+			exit={{ opacity: 0, y: 20 }}
+			transition={{ duration: 0.3, ease: "easeOut" }}
 		>
 			<Card className="flex w-full items-center rounded-2xl border-none p-4 shadow-sm">
 				<div className="flex w-full items-start gap-4">

@@ -15,8 +15,6 @@
 	// },
 	"formatter": {
 		"enabled": true,
-		"indentWidth": 2,
-		"lineWidth": 80,
 		"indentStyle": "tab"
 	},
 	"linter": {
@@ -47,11 +45,14 @@
 			"complexity": {
 				"noForEach": "warn",
 				"noUselessCatch": "warn",
-				"useSimplifiedLogicExpression": "error"
+				"useSimplifiedLogicExpression": "error",
+				"noUselessFragments": "warn",
+				"useArrowFunction": "error"
 			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",
+					"fix": "safe",
 					"options": {
 						"attributes": ["classList"],
 						"functions": ["clsx", "cva", "tw", "cn"]
